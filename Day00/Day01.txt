@@ -1,0 +1,179 @@
+https://linuxmaster.net/python1/day01.txt
+
+검색 > 프로그램 추가/제거
+파이썬/아나콘다 모두 삭제
+
+
+o 파이썬 버전
+파이썬은 2.x 과 3.x 버전이 있다.
+2.x 버전은 2020년 1월 1일부터 공식적으로 종료되었다. 
+2.x 버전은 3.x 버전과 완벽하게 호환이 안되고 이 수업은 3.x 버전으로 진행할 예정이다.
+
+
+o 파이썬 설치하기
+공식 사이트 : http://www.python.org
+
+설치 디렉터리: C:\Python311
+설치할 때 PATH를 설정해야 한다.
+
+안되면
+PATH 설정
+C:\Python311\Scripts\
+C:\Python311\
+
+
+
+
+컴파일 언어 
+- 전체 소스코드를 기계가 있는 기계어로 몽땅 바꿔서 실행파일로 뽑아내는 언어
+- C, C++, C#, Java ...
+
+인터프리터 언어
+- 전체 소스코드를 한 줄 한줄 해석해서 실행하는 언어
+- python, shell script, perl, ruby ..
+
+인터렉티브 쉘: 대화형 쉘
+C:\Python311>python
+Python 3.11.3 (tags/v3.11.3:f3909b8, Apr  4 2023, 23:49:59) [MSC v.1934 64 bit (AMD64)] on win32
+Type "help", "copyright", "credits" or "license" for more information.
+>>> print("Hello Python!")
+Hello Python!
+
+
+실습> 작업 폴더 생성
+
+내문서 > 5월파이썬평일반 폴더 생성
+
+C언어 확장자 : .c
+C++언어 확장자 : .cpp
+Java언어 확장자 : .java
+C# 언어 확장자 : .cs
+Python언어 확장자 :  .py
+
+-- hello.py --
+print("Hello Python!")
+-- hello.py --
+
+형식: python.exe <파이썬파일>
+C:\Users\ITSC\Documents\5월파이썬평일반>python.exe hello.py
+Hello Python!
+
+코드를 아래처럼 수정한다.
+-- hello.py --
+print("1. Hello Python!")
+print("2. Hello Python!")
+print("3. Hello Python!")
+print("4. Hello Python!")
+print("5. Hello Python!")
+-- hello.py --
+
+C:\Users\ITSC\Documents\5월파이썬평일반>python.exe hello.py
+1. Hello Python!
+2. Hello Python!
+3. Hello Python!
+4. Hello Python!
+5. Hello Python!
+
+실습> VSCode 설치하기
+
+o 비주얼스튜디오 코드
+https://cafe.naver.com/linuxmasternet/856
+
+https://code.visualstudio.com/
+
+설치 후 아래 두 가지를 설정한다.
+메뉴 > 파일 > 기본설정 > 설정 (단축키 Ctrl , )
+zoom : 체크 폰트 조절(Ctrl + 마우스 휠) 
+inline : Debug Inline Value 체크
+
+
+o 파이썬 프로그램의 코드 실행 순서
+위에서 아래로 내려오면서 실행한다.
+왼쪽에서 오른쪽으로 실행한다.
+
+버그 : 벌레 (프로그램 오류)
+디버그 : 벌레잡이
+
+디버깅을 하는 이유
+1. 논리적인 오류를 잡기 위해서
+2. 프로그램을 분석하기 위해서  <--
+
+BP 설정은 실행되는 코드에 반드시 설정한다.
+
+프로그램을 디버깅 하는 방법
+1. 소스코드를 작성하고 저장한다.
+2. 프로그램을 분석하기 위해 BP(Break Point)를 설정한다.
+3. 디버그 모드(F5)로 프로그램을 실행한다.
+4. 프로그램을 실행하기 위해 단축키(F10, F11)로 실행한다.
+5. 프로그램을 실행하면서 프로그램의 흐름을 분석한다.
+
+debug.py 소스코드를 아래처럼 수정하고 디버깅한다.
+
+-- debug.py --
+"""
+파일명 : debug.py
+프로그램 설명 : 디버깅을 이용한 프로그램 분석하기
+"""
+i = 1
+
+while i <= 5:
+    print(i)
+    i = i + 1
+
+print('프로그램 종료')    
+-- debug.py --
+
+
+주석 (설명문) 
+프로그램에서 프로그래머가 프로그램 코드에 설명을 달아서 알기 쉽게 붙힌 코멘트이다.
+파이썬에서 주석을 붙히는 형식 :
+- 첫 번째 방법 : #
+- 두 번째 방법 : ''' ~ '''
+- 세 번째 방법 : """ ~ """
+
+-- ex01.py --
+"""
+파일명: ex01.py
+프로그램 설명: print() 함수를 이용한 문자열 출력하기
+"""
+
+# 문자열은 문자가 두 개 이상 모 있으면 문자열이 된다.
+# 이 문자열을 만들기 위해서 "..." or '...' 안에 넣어준다.
+print("오늘은 파이썬을 처음 배웁니다.")  # 큰 따옴표
+print('오늘은 파이썬을 처음 배웁니다.')  # 작은 따옴표
+-- ex01.py --
+
+-- ex02.py --
+"""
+파일명: ex02.py
+프로그램 설명: 변수를 이용한 문자열 출력하기
+"""
+# 변수의 저장 형식
+# 변수명 = 값
+# 변수명 = 변수명
+# 변수명 = 수식
+# 변수명 = 함수
+
+name = "홍길동"
+name2 = name
+
+print(name)  # 홍길동
+print(name2)   # 홍길동
+-- ex02.py --
+
+-- ex03.py --
+"""
+파일명: ex03.py
+프로그램 설명: print()함수의 출력 방법
+"""
+
+# print() 함수의 출력방법
+# 첫 번째: print(변수명,변수명,변수명 ...)
+# 두 번째: print(값, 값, ...)
+name = '홍길동'
+number = 3
+print(name, number)
+
+# 화면에 정수 1 2 3 4 5 를 출력하세요.
+print(1,2,3,4,5)
+-- ex03.py --
