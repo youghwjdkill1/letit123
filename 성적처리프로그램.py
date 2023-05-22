@@ -4,10 +4,10 @@
 """
 
 # 1. 입력 부분
-name = input('이름:이호정 ')
-kor = int(input("국어점수: 12"))
-eng  = int(input('영어점수: 7 '))
-math = int(input('수학점수: 28 '))
+name = input('이름: ')
+kor = int(input("국어점수: "))
+eng  = int(input('영어점수:'))
+math = int(input('수학점수: '))
 # print(name, kor, eng, math)
 
 # 2. 처리 부분
