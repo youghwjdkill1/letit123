@@ -1,0 +1,1067 @@
+#########
+## 제어문 
+#########
+
+제어문이란 프로그램의 실행 흐름을 제어할 때 사용한다.
+종류 : if, while, for, break, continue
+
+조건문
+조건문이란 실행문을 조건을 판단해서 실행하는 제어문으로 if문이 여기에 해당된다.
+
+반복문
+반복문이란 실행문을 반복해서 실행할 때 사용하는 제어문으로 while, for문이 여기에 해당된다.
+
+if문
+if문은 조건문으로 프로그램의 흐름을 제어할 때 사용하는 제어문이다.
+
+예를 들어서 
+
+우산을 챙긴다.
+구두를 신는다.
+외출한다.
+
+
+if 밖에 비가오는가 ?:
+    우산을 챙긴다.
+    구두를 신는다.
+else:
+    운동화를 신는다.
+
+외출한다.
+
+
+if문은 4가지 종류가 있다.
+단일 if문, if~else문, 다중if문, 중첩if문
+단일 if문 형식 : 
+if 조건식 : <-- 조건식은 참(True)과 거짓(False)을 판단할 수 있어야 한다.
+    실행문  <-- 조건식이 참이면 실행문이 실행된다.
+      :
+
+if ~ else 문 :
+if 조건식 :
+    실행문1  <-- 조건식이 참이면 실행문1이 실행된다.
+       :
+else:
+    실행문2  <-- 조건식이 거짓이면 실행문2가 실행된다.
+       :
+
+다중 if문 형식 :
+if 조건식1 :
+    실행문1   <-- 조건식1이 참이면 실행문1이 실행된다.
+      :
+elif 조건식2: <-- 조건식1이 거짓이면 조건식2를 실행한다. 
+    실행문2   <-- 조건식2가 참이면 실행문2가 실행된다.
+      :     
+elif 조건식3: <-- 조건식2가 거짓이면 조건식3을 실행한다. 
+    실행문3   <-- 조건식3이 참이면 실행문3이 실행된다.
+      :
+elif 조건식4: <-- 조건식3이 거짓이면 조건식4를 실행한다. 
+    실행문4   <-- 조건식4가 참이면 실행문4가 실행된다.
+      :
+else:         <-- 조건식4가 거짓이면 이 부분이 실행한다.  (생략 가능)
+    실행문5   <-- 조건식4가 기짓이면 실행문5가 실행된다.
+      :
+
+중첩 if문
+if 조건식 :
+    실행문  <-- 조건식이 참이면 실행문이 실행된다.
+      :     
+    if 조건식 :
+        실행문
+          :
+
+
+자료형의 참과 거짓의 판단 기준
+        True           False
+숫자     1(0이 아닌 숫자 모두)  0          
+문자열   "test"           ""   <-- 값이 있으면 참, 없으면 거짓
+리스트   [1,2,3]          []   <-- 값이 있으면 참, 없으면 거짓
+튜플     (1,2,3)          ()   <-- 값이 있으면 참, 없으면 거짓
+딕셔너리 {"a" : "b"}      {}   <-- 값이 있으면 참, 없으면 거짓
+불리언   True            False
+
+if dictData :
+    :
+
+if listData :
+    :
+
+관계 연산자(비교 연산자)의 판단 기준
+x = 3
+y = 2
+
+x > y    x가 y보다 크다
+x < y    x가 y보다 작다
+x >= y   x가 y보다 크거나 같다
+x <= y   x가 y보다 작거나 같다
+x == y   x와 y가 같다
+x != y   x와 y가 같지 않다
+
+
+if x > y :
+   :
+if x == y :
+   :
+
+논리 연산자의 판단 기준
+x = 3
+y = 2
+
+a : x == 3 
+b : y != 2
+a or b   a와 b 둘 중에 하나만 참이면 참
+a and b  a와 b둘 다 참이어야 참
+not a    a가 거짓이면 참
+
+if x != y and x >= 3:
+  :
+
+if not x:
+  :
+
+멤버쉽 연산자
+a = [1,2,3,4,5]
+if 1 in a :
+  :
+
+식별연산자
+if a is b :
+  :
+
+X
+if a = 1:
+   :
+
+-- exIf1.py --
+"""
+파일명: exIf1.py
+프로그램 설명: 단일 if문
+"""
+# 단일 if문
+# 참일 때만 실행하는 구조이다.
+# 거짓일 때는 실행하는 부분이 없다.
+a = 2
+b = 8
+
+# 관계 연산자
+# 형식:
+# if a 관계 연산자 b:
+#     실행문
+#       :
+
+if(a == 2):
+    print('1. 이 부분이 실행됩니다.')
+
+if not a > 10:
+    print('a는 10보다 큽니다.')    
+
+if a: 
+    print('참이므로 실행됩니다.')   
+
+-- exIf1.py --
+
+-- exIfElse1.py --
+"""
+파일명: exIfElse1.py
+프로그램 설명: if~else문
+"""
+
+a = 1
+
+if a == 2:
+    print("a는 2와 같습니다.")
+else:
+    print("a는 2와 같지 않습니다.")
+
+print('프로세스 종료')
+
+-- exIfElse1.py --
+
+
+-- exIfElse2.py --
+"""
+파일명: exIfElse2.py
+프로그램 설명: if~else문을 로그인 프로그램
+
+사용자명을 userid 변수에 저장한다.
+비밀번호를 userpw 변수에 저장한다.
+사용자에게 사용자명을 입력 받아서 inputUserid 변수에 저장한다.
+사용자에게 비밀번호를 입력 받아서 inputUserpw 변수에 저장한다.
+
+입력 받은 사용자 아이디와 userid 를 비교한다.
+입력 받은 사용자 비밀번호와 userpw 를 비교한다.
+두 값이 맞으면 로그인 환영 메세지를 출력 시키고 프로그램 실행으로 이동한다.
+두 값이 틀리면 로그인 실패 메세지를 출력 시키고 프로그램을 종료한다.
+"""
+
+# builtins 모듈에 저장된 함수나 클래스들은 import builtins 를 사용하지 않고 그냥 쓸 수 있다.
+# import builtins
+# builtins.print('Hello')
+# 
+# print('Hello')
+
+
+import getpass
+
+userid = 'pythonuser'  # 단순변수 -> File -> DB
+userpw = '123456'
+
+print('>>> 로그인 <<<')
+inputUserid = input('사용자: ')
+inputUserpw = getpass.getpass('비밀번호: ')
+
+if userid == inputUserid and userpw == inputUserpw:
+    print('로그인 성공!')
+    print(f'{userid}님 환영합니다.')
+else:
+    print('로그인 실패!')
+    exit()
+    
+print('로그인 후 실행되는 코드가 온다.')
+
+-- exIfElse2.py --
+
+
+-- exIfElif1.py --
+"""
+파일명: exIfElif1.py
+프로그램 설명: 다중 if문
+"""
+
+number = 7  # 1 ~ 5
+
+if number == 1:
+    print('number는 1입니다.')
+elif number == 2:
+    print('number는 2입니다.')
+elif number == 3:
+    print('number는 3입니다.')
+elif number == 4:
+    print('number는 4입니다.')
+elif number == 5:
+    print('number는 5입니다.')
+else:
+    print('number는 1 ~ 5가 아닙니다.')    
+
+print('프로세스 종료')    
+
+-- exIfElif1.py --
+
+실습> 로그인 기능이 없는 성적처리프로그램
+
+-- jumsu1Login.py --
+"""
+파일명: jumsu1Login.py
+프로그램 설명: 성적처리프로그램 
+"""
+
+# 1. 입력 부분
+name = input('이름: ')
+kor  = int(input('국어점수: '))
+eng  = int(input('영어점수: '))
+math = int(input('수학점수: '))
+# print(name, kor, eng, math)
+
+# 2. 처리 부분
+total = kor + eng + math
+average = total / 3
+
+# 3. 출력 부분
+print(f'이름: {name}')
+print(f'국어점수: {kor}')
+print(f'영어점수: {eng}')
+print(f'수학점수: {math}')
+print(f'총점: {total}')
+print(f'평균: {average:.2f}')
+-- jumsu1Login.py --
+
+실습> 로그인 기능이 있는 성적처리프로그램
+
+-- jumsu1Login.py --
+"""
+파일명: jumsu1Login.py
+프로그램 설명: 성적처리프로그램 + 로그인 기능
+"""
+
+# 1. 로그인 기능
+import getpass
+
+userid = 'pythonuser'  # 단순변수 -> File -> DB
+userpw = '123456'
+
+print('>>> 로그인 <<<')
+inputUserid = input('사용자: ')
+inputUserpw = getpass.getpass('비밀번호: ')
+
+if userid == inputUserid and userpw == inputUserpw:
+    print('로그인 성공!')
+    print(f'{userid}님 환영합니다.')
+else:
+    print('로그인 실패!')
+    exit()
+    
+# 2. 입력 부분
+name = input('이름: ')
+kor  = int(input('국어점수: '))
+eng  = int(input('영어점수: '))
+math = int(input('수학점수: '))
+# print(name, kor, eng, math)
+
+# 3. 처리 부분
+total = kor + eng + math
+average = total / 3
+
+# 4. 출력 부분
+print(f'이름: {name}')
+print(f'국어점수: {kor}')
+print(f'영어점수: {eng}')
+print(f'수학점수: {math}')
+print(f'총점: {total}')
+print(f'평균: {average:.2f}')
+-- jumsu1Login.py --
+
+
+실습> 다중 if문을 이용하여 성적처리 프로그램을 작성하시오.
+
+파일명: exIfElif2.py
+국어, 영어, 수학 점수를 입력받아서 총점, 평균, 학점을 구해서 출력한다.
+다중if문을 이용하여 구현한다.
+
+# A학점 : 90 ~ 100   , grade = 'A'
+# B학점 : 80 ~ 89.9  , grade = 'B'
+# C학점 : 70 ~ 79.9  , grade = 'C'
+# D학점 : 60 ~ 69.9  , grade = 'D'
+# F학점 : 0 ~ 59.9   , grade = 'F'
+
+-- exIfElif3.py --
+"""
+파일명: exIfElif3.py
+프로그램 설명: 다중 if문을 이용한 성적처리 프로그램
+"""
+
+# 1. 점수 입력
+print('>>> 성적 처리 프로그램 <<<')
+kor  = input('국어 점수: ')
+eng  = input('영어 점수: ')
+math = input('수학 점수: ')
+
+# 2. 점수 체크
+kor  = 0 if not kor.isdigit()  else int(kor)
+eng  = 0 if not eng.isdigit()  else int(eng)
+math = 0 if not math.isdigit() else int(math)
+
+# 3. 점수 계산
+total = kor + eng + math  # 총점
+average = total / 3  # 평균
+
+# 4. 학점 구하기
+# A학점 : 90 ~ 100   , grade = 'A'
+# B학점 : 80 ~ 89.9  , grade = 'B'
+# C학점 : 70 ~ 79.9  , grade = 'C'
+# D학점 : 60 ~ 69.9  , grade = 'D'
+# F학점 : 0 ~ 59.9   , grade = 'F'
+if average >= 90 and average <= 100:  # A학점 : 90 ~ 100
+    grade = 'A'
+elif average >= 80 and average < 90:  # B학점 : 80 ~ 89.9
+    grade = 'B'
+elif average >= 70 and average < 80:  # C학점 : 70 ~ 79.9
+    grade = 'C'
+elif average >= 60 and average < 70:  # D학점 : 60 ~ 69.9
+    grade = 'D'
+else:  # F학점 : 0 ~ 59.9  
+    grade = 'F'
+
+# 5. 점수 출력
+print('>>> 점수의 결과 <<<\n'
+     f'국어 점수: {kor}\n'
+     f'영어 점수: {eng}\n'
+     f'수학 점수: {math}\n'
+     f'총점: {total}\n'
+     f'평균: {average:.2f}\n'
+     f'학점: {grade}')
+-- exIfElif3.py --
+
+
+#########
+## 반복문
+##########
+반복문이란 실행문을 여러 번 반복해서 실행하는 제어문으로 while문과 for문이 여기에 해당된다.
+
+while문은 실행문을 반복할 때 사용하는 제어문이다.
+
+형식:
+while 조건식:
+    실행문  <-- 조건식이 참일 때 실행할 실행문
+      :
+else:       <-- else는 생략 가능
+    실행문  <-- 조건식 거짓일 때 실행할 실행문
+      :
+
+
+-- exWhile1.py --
+"""
+파일명: exWhile1.py
+프로그램 설명: while문
+"""
+
+# 반복문을 사용하지 않고 1 ~ 5까지 출력
+i = 1
+print(i)
+i += 1
+print(i)
+i += 1
+print(i)
+i += 1
+print(i)
+i += 1
+print(i)
+
+# 반복문을 사용하고 1 ~ 5까지 출력
+# 초깃값 -> 조건식 -> 실행문 -> 증감식
+i = 1         # 초깃값
+while i <= 5: # 조건식
+    print(i)  # 실행문
+    i += 1    # 증감식
+else:
+    print('while문 종료')    
+-- exWhile1.py --
+
+
+출석 체크를 할 때 아래 문제를 풀어보세요.
+파일명: day05.txt
+
+실습> 리스트를 while문으로 출력하기
+
+listData 안에 있는 데이터를 while문을 이용해서 출력한다.
+
+listData = [1,2,3,4,5]
+count = len(listData)  # listData의 전체 자료의 개수를 구한다.
+
+a = 0                   # 초깃값
+while a < count:        # 조건식  자료의 개수만큼 반복한다.
+    print(listData[a])  # 실행문
+    a += 1              # 증감식
+
+출력 결과:
+1
+2
+3
+4
+5
+
+-- exWhile2.py --
+"""
+파일명: exWhile1.py
+프로그램 설명: while문
+"""
+
+# 반복문을 사용하지 않고 5 ~ 1까지 출력
+i = 5
+print(i)  # 5
+i -= 1
+print(i)  # 4
+i -= 1
+print(i)  # 3
+i -= 1
+print(i)  # 2
+i -= 1
+print(i)  # 1
+
+
+# 반복문을 사용하고 5 ~ 1까지 출력
+i = 5  # 초깃값
+while i >= 1:  # 조건식 5 ~ 1  i > 0
+    print(i)   # 실행문 
+    i -= 1     # 증감식
+else:
+    print('while문 종료')    
+
+
+# 감소하면서 5번 이름을 출력한다.
+i = 5
+
+# 반복문을 사용하고 5 ~ 1까지 출력
+while 5 >= 1:  # 
+    print('홍길동')  # 5
+    i -= 1
+else:
+    print('while문 종료')    
+
+# 증가하면서 5번 이름을 출력한다.
+i = 1
+
+# 반복문을 사용하고 5 ~ 1까지 출력
+while i <= 5:  # 
+    print('홍길동')  # 5
+    i += 1
+else:
+    print('while문 종료')    
+
+-- exWhile2.py --
+
+-- exWhile3.py --
+"""
+파일명: exWhile3.py
+프로그램 설명: while문을 이용한 로그인 프로그램
+"""
+
+import getpass
+
+userid = 'pythonuser'  # 단순변수 -> File -> DB
+userpw = '123456'
+
+print('>>> 로그인 <<<')
+
+i = 1
+while i <= 3:
+    inputUserid = input('사용자: ')
+    inputUserpw = input('비밀번호: ')
+
+    if userid == inputUserid and userpw == inputUserpw:
+        print('로그인 성공!')
+        print(f'{userid}님 환영합니다.')
+        break
+    else:
+        print('로그인 실패!')
+    i += 1
+else:
+    print('프로그램 종료')
+    exit()    
+print('로그인 후 실행되는 코드가 온다.')
+-- exWhile3.py --
+
+실습>  아래 코드를 수정하시오.
+
+로그인 횟수 1번 -> 3번으로 변경
+
+-- jumsu2Login.py --
+"""
+파일명: jumsu2Login.py
+프로그램 설명: 성적처리프로그램 + 로그인 기능 (입력 횟수: 3번)
+"""
+
+# 1. 로그인 기능
+import getpass
+
+userid = 'pythonuser'  # 단순변수 -> File -> DB
+userpw = '123456'
+
+print('>>> 로그인 <<<')
+i = 1
+count = 3  # 로그인 횟수
+while i <= count:
+    inputUserid = input('사용자: ')
+    inputUserpw = getpass.getpass('비밀번호: ')
+
+    if userid == inputUserid and userpw == inputUserpw:
+        print('로그인 성공!')
+        print(f'{userid}님 환영합니다.')
+        break
+    else:
+        print('아이디/비밀번호를 다시 확인해주세요!\n')
+        i += 1   
+else: 
+    print('로그인 실패!')      
+    import sys
+    sys.exit()  
+   
+# 2. 입력 부분
+name = input('이름: ')
+kor  = int(input('국어점수: '))
+eng  = int(input('영어점수: '))
+math = int(input('수학점수: '))
+# print(name, kor, eng, math)
+
+# 3. 처리 부분
+total = kor + eng + math
+average = total / 3
+
+# 4. 출력 부분
+print(f'이름: {name}')
+print(f'국어점수: {kor}')
+print(f'영어점수: {eng}')
+print(f'수학점수: {math}')
+print(f'총점: {total}')
+print(f'평균: {average:.2f}')
+-- jumsu2Login.py --
+
+break문
+반복문 안에서 실행문을 실행하는 도중에 break문을 만나면 반복문(loop)을 탈출(종료)한다.
+break문은 반복문 밖에서는 단독으로 사용할 수 없다.
+break문을 만나면 while문의 else와 for문의 else는 실행되지 않는다.
+이유는 while문 안쪽으로 들어왔다는 얘기는 while의 else쪽과 무관하기 때문이다.
+반복문 안에서 단독으로 사용할 수 있지만 주로 if문과 함께 사용한다.
+
+
+-- exBreak.py --
+"""
+파일명: exBreak.py
+프로그램 설명: break문
+"""
+
+# break  # SyntaxError: 'break' outside loop
+i = 1          # 초깃값
+while i <= 5:  # 조건식
+    print(i)   # 실행문
+    i += 1     # 증감식
+    if i == 3:
+        break
+
+i = 1          # 초깃값
+while i <= 10:  # 조건식
+    if i % 2 == 0:
+        print(i)   # 실행문
+        if i == 4:
+            break
+    i += 1     # 증감식
+
+print('프로세스 종료')
+
+
+print('프로세스 종료')
+-- exBreak.py --
+
+
+continue문
+반복문 안에서 실행문을 실행하는 도중에 continue 문을 만나면 반복문의 조건식으로 이동한다.
+continue문은 반복문 밖에서는 단독으로 사용할 수 없다.
+반복문 안에서 단독으로 사용할 수 있지만 주로 if문과 함께 사용한다.
+
+
+-- exContinue1.py --
+"""
+파일명: exContinue1.py
+프로그램 설명: continue문
+"""
+
+# continue  # SyntaxError: 'continue' not properly in loop
+
+i = 1
+while i < 11: 
+    if i % 2 == 0:
+        i += 1
+        continue
+    
+    print(i)  # 1 3 5 7 9
+    i += 1
+else:
+    print('while문 종료')
+
+-- exContinue1.py --
+
+
+이중 while문(중첩 while문)
+while문 안쪽에 또다른 while문이 들어있는 형태이다.
+형식 :
+while 조건식 :
+    실행문1
+       :
+    while 조건식 :
+        실행문2
+           :
+    else:
+        실행문3
+            :
+    실행문4
+       :
+else:
+    실행문
+
+-- exWhileWhile.py --
+"""
+파일명: exWhileWhile.py
+프로그램 설명: 중첩 while문(이중 while문)
+"""
+
+# 첫 번째 while문 : 1 ~ 5까지 출력하는 코드
+i = 1          # 초기값
+while i <= 5:  # 조건식 i < 6, 5 >= i, 6 > i
+    print(i)   # 실행문
+    i += 1     # 증감식
+
+# 두 번째 while문 : 6 ~ 10까지 출력하는 코드
+j = 6          # 초기값
+while j <= 10:  # 조건식 j < 11, 10 >= j, 11 > j
+    print(j)   # 실행문
+    j += 1     # 증감식
+
+
+# 첫 번째 while문 : 1 ~ 5까지 출력하는 코드
+i = 1          # 초기값
+while i <= 5:  # 조건식 i < 6, 5 >= i, 6 > i
+    print(i)   # 실행문
+    i += 1     # 증감식
+
+    # 두 번째 while문 : 6 ~ 10까지 출력하는 코드
+    j = 6          # 초기값
+    while j <= 10:  # 조건식 j < 11, 10 >= j, 11 > j
+        print(j, end=' ')   # 실행문
+        j += 1     # 증감식
+    print()
+-- exWhileWhile.py --
+
+실습> 구구단 2단을 while문으로 구현하기
+
+파일명: exGugudan1.py 
+while문을 이용해서 구구단 2단 출력을 구현한다.
+실행 결과:
+2x1=2  2x2=4  2x3=6  2x4=8  2x5=10  2x6=12  2x7=14  2x8=16  2x9=18
+
+
+-- exGugudan1.py --
+"""
+파일명: exGugudan1.py
+프로그램 설명: while문을 이용한 구구단 출력하기
+"""
+
+dan = 2
+i = 1
+
+while i <= 9:
+    print(f'{dan}x{i}={dan*i}', end='  ')
+    i += 1
+else:
+    print()
+
+-- exGugudan1.py --
+
+
+실습> 구구단 2단 ~ 9단까지 중첩 while문으로 구현하기
+
+파일명: exGugudan2.py 
+중첩 while문을 이용해서 구구단 2단 ~ 9단까지 출력을 구현한다.
+실행 결과:
+# 2x1=2   2x2=4   2x3=6   2x4=8   2x5=10  2x6=12  2x7=14  2x8=16  2x9=18
+# 3x1=3   3x2=6   3x3=9   3x4=12  3x5=15  3x6=18  3x7=21  3x8=24  3x9=27
+# 4x1=4   4x2=8   4x3=12  4x4=16  4x5=20  4x6=24  4x7=28  4x8=32  4x9=36
+# 5x1=5   5x2=10  5x3=15  5x4=20  5x5=25  5x6=30  5x7=35  5x8=40  5x9=45
+# 6x1=6   6x2=12  6x3=18  6x4=24  6x5=30  6x6=36  6x7=42  6x8=48  6x9=54
+# 7x1=7   7x2=14  7x3=21  7x4=28  7x5=35  7x6=42  7x7=49  7x8=56  7x9=63
+# 8x1=8   8x2=16  8x3=24  8x4=32  8x5=40  8x6=48  8x7=56  8x8=64  8x9=72
+# 9x1=9   9x2=18  9x3=27  9x4=36  9x5=45  9x6=54  9x7=63  9x8=72  9x9=81
+
+
+-- exGugudan2.py --
+"""
+파일명: exGugudan2.py
+프로그램 설명: while문을 이용한 구구단 출력하기
+"""
+
+# 초기값, 조건식, 실행문, 증감식 순으로 분석하기
+# 2단 ~ 9단까지 출력
+# 1. 바깥쪽 while문, 2. 안쪽 while문
+
+dan = 2  # 1.초깃값
+
+while dan <= 9:  # 1.조건식 2 ~ 9
+    # 1.실행문
+    i = 1  # 2.초깃값
+    while i <= 9:  # 2.조건식 1 ~ 9
+        print(f'{dan}x{i}={dan*i:<3d} ', end='')  # 2.실행문
+        i += 1  # 2.증감식
+    else:
+        print()
+
+    dan += 1  # 1.증감식
+-- exGugudan2.py --
+
+##########
+## for문
+##########
+while문과 동일하게 프로그램의 실행문을 반복할 때 사용하는 제어문이다.
+형식 :
+for 변수 in 리스트( or 튜플, 딕셔너리, 셋, 문자열, 함수):
+    실행문1
+    실행문2
+       :
+
+for 변수 in 리스트( or 튜플, 딕셔너리, 셋, 문자열, 함수):
+    실행문1
+    실행문2
+       :
+else:         <-- 생략 가능하다.
+    실행문3
+       :
+
+-- exFor1.py --
+"""
+파일명 : exFor1.py
+프로그램 설명 : for문 
+"""
+
+#for i in range(5):  # 0 ~ 4
+# for i in range(1,6): # 1 ~ 5  # range()함수를 이용한 for문
+# for i in (1,2,3,4,5):  # 튜플을 이용한 for문
+# for i in "Hello":  # 문자열을 이용한 for문
+for i in [1,2,3,4,5]:  # 리스트를 이용한 for문
+    print(i)
+else:      
+    print('for문 종료')
+
+dictData = {'a':1, 'b':2, 'c':3, 'd':4, 'e':5}  
+for i in dictData:  # 딕셔너리를 이용한 for문
+    print(i)
+    print(dictData[i])
+
+
+def myFunction():
+    return (1,2,3,4,5)
+
+print(myFunction())
+for i in myFunction():
+    print(i)
+-- exFor1.py --
+
+
+range() 
+https://docs.python.org/ko/3/tutorial/index.html
+https://docs.python.org/ko/3/tutorial/controlflow.html#the-range-function
+
+range() 함수(클래스)를 이용한 숫자 증가하기
+형식 : 
+range(숫자) : 숫자가 1개가 인수로 올 경우
+range(시작숫자,끝숫자) : 숫자가 2개가 인수로 올 경우
+range(시작숫자,끝숫자,증가할개수) : 숫자가 3개가 인수로 올 경우
+range(시작숫자,끝숫자,감소할개수) : 숫자가 3개가 인수로 올 경우
+range() 함수는 0부터 시작한다. 끝숫자는 포함이 안된다.
+
+range(3) : 0,1,2
+range(5) : 0,1,2,3,4
+range(1,11) : 1,2,3,4,5,6,7,8,9,10
+range(5,11) : 5,6,7,8,9,10
+range(1,6) : 1,2,3,4,5
+range(1,6,1) : 1,2,3,4,5
+range(1,11,2) : 1,3,5,7,9
+range(5,0,-1) : 5,4,3,2,1
+range(10,0,-2) : 10, 8, 6, 4, 2
+list(range(1,3001)) : [1, ... 3000]
+
+-- exFor2.py --
+"""
+파일명 : exFor2.py
+프로그램 설명 : for문 
+"""
+
+
+def myFunction():
+    return (1,2,3,4,5)
+
+# for문 옆에 올 수 있는 iterator object 살펴보기
+print(iter([1,2,3,4,5]))  # <list_iterator object at 0x0000028E6004B688>
+print(iter((1,2,3,4,5)))  # <tuple_iterator object at 0x0000028E6004B688>
+print(iter("12345"))      # <str_iterator object at 0x0000028E6004B688>
+print(iter(range(1,6)))   # <range_iterator object at 0x0000028E5FB9E770>
+print(iter(myFunction())) # <tuple_iterator object at 0x0000028E6004BA88>
+print(iter({1,2,3,4,5}))  # <set_iterator object at 0x0000028E60045A98>
+print(iter({'a':1, 'b':2, 'c':3, 'd':4, 'e':5})) # <dict_keyiterator object at 0x0000028E60045A98> 
+-- exFor2.py --
+
+
+-- exFor3.py --
+"""
+파일명 : exFor3.py
+프로그램 설명 : for문
+"""
+
+# 반복문을 사용하고 1 ~ 5까지 출력
+
+# 2x1=2  2x2=4  2x3=6  2x4=8  2x5=10  2x6=12  2x7=14  2x8=16  2x9=18
+
+# dan = 2
+# i = 1
+# 
+# while i <= 9:
+#     print(f'{dan}x{i}={dan*i}', end='  ')
+#     i += 1
+# else:
+#     print()
+
+dan = 2
+for i in range(1,10):
+    print(f'{dan}x{i}={dan*i}', end='  ')
+else:
+    print()
+-- exFor3.py --
+
+중첩 (이중) for문
+for문 안에 for문이 들어간 형태
+형식 : 
+for i in 이터러블객체 :
+    실행문 
+       :
+    for j in 이터러블객체 :
+        실행문
+          :
+    else:
+         실행문
+    실행문 
+       :
+else:
+    실행문
+
+-- exForFor.py ---
+"""
+파일명 : exForFor.py
+프로그램 설명 : 중첩 for문
+"""
+
+# i = 1 ~ 5
+for i in range(1,6):
+    print(i)
+
+# j = 6 ~ 10
+for j in range(6,11):
+    print(j)    
+
+# i = 1 ~ 5
+for i in range(1,6):
+
+    # j = 6 ~ 10
+    for j in range(6,11):
+        print(i, j)    
+    else:
+        print('j for문 종료')
+else:
+    print('i for문 종료')    
+-- exForFor.py ---
+
+
+-- exGugudan3.py --
+"""
+파일명 : exGugudan3.py
+프로그램 설명 : 중첩 for문을 이용한 구구단 출력하기
+"""
+
+# 2x1=2  3x1=3  4x1=4  5x1=5  6x1=6  7x1=7  8x1=8  9x1=9
+# 2x2=4  3x2=6  4x2=8  5x2=10 6x2=12 7x2=14 8x2=16 9x2=18
+# 2x3=6  3x3=9  4x3=12 5x3=15 6x3=18 7x3=21 8x3=24 9x3=27
+# 2x4=8  3x4=12 4x4=16 5x4=20 6x4=24 7x4=28 8x4=32 9x4=36
+# 2x5=10 3x5=15 4x5=20 5x5=25 6x5=30 7x5=35 8x5=40 9x5=45
+# 2x6=12 3x6=18 4x6=24 5x6=30 6x6=36 7x6=42 8x6=48 9x6=54
+# 2x7=14 3x7=21 4x7=28 5x7=35 6x7=42 7x7=49 8x7=56 9x7=63
+# 2x8=16 3x8=24 4x8=32 5x8=40 6x8=48 7x8=56 8x8=64 9x8=72
+# 2x9=18 3x9=27 4x9=36 5x9=45 6x9=54 7x9=63 8x9=72 9x9=81
+
+# 2단만 출력
+# dan = 2
+# for i in range(1,10):
+#     print(f'{dan}x{i}={dan*i}', end='  ')
+# else:
+#     print()
+
+for dan in range(2,10): # 2 ~ 9
+    for i in range(1,10):  # 1 ~ 9
+        print(f'{dan}x{i}={dan*i:<2d}', end='  ')
+    else:
+        print()
+-- exGugudan3.py --
+
+실습> 주말에 작성하기
+
+-- exGugudan4.py --
+
+2x1=2  3x1=3  4x1=4  5x1=5  6x1=6  7x1=7  8x1=8  9x1=9  
+2x2=4  3x2=6  4x2=8  5x2=10 6x2=12 7x2=14 8x2=16 9x2=18
+2x3=6  3x3=9  4x3=12 5x3=15 6x3=18 7x3=21 8x3=24 9x3=27
+2x4=8  3x4=12 4x4=16 5x4=20 6x4=24 7x4=28 8x4=32 9x4=36
+2x5=10 3x5=15 4x5=20 5x5=25 6x5=30 7x5=35 8x5=40 9x5=45
+2x6=12 3x6=18 4x6=24 5x6=30 6x6=36 7x6=42 8x6=48 9x6=54
+2x7=14 3x7=21 4x7=28 5x7=35 6x7=42 7x7=49 8x7=56 9x7=63
+2x8=16 3x8=24 4x8=32 5x8=40 6x8=48 7x8=56 8x8=64 9x8=72
+2x9=18 3x9=27 4x9=36 5x9=45 6x9=54 7x9=63 8x9=72 9x9=81
+
+-- exGugudan4.py --
+
+리스트 컴프리헨션 (list comprehension)
+리스트 컴프리헨션이란 리스트를 간략하게 표현한 것으로 리스트 안에 for문을 사용할 수 있도록 한 것이다.
+형식 (리스트 + for문) : 변수명 = [실행문 for문]
+형식 (리스트 + for문 + 단일 if문) : 변수명 = [실행문 for문 if문]
+형식 (리스트 + for문 + 단일 if~else문) : 변수명 = [실행문 if 조건식 else 실행문 for문 ]
+
+-- exListComprehansion.py --
+"""
+파일명 : exListComprehansion.py
+프로그램 설명 : 리스트 컴프리헨션
+"""
+
+# for문을 한 줄로 줄인다.
+# a.append() 메소드는 삭제한다.
+# 콜론(:)을 삭제한다.
+# 변수 i를 왼쪽으로 이동시킨다.
+# 대괄호([])를 추가한다.
+# a변수에 저장한다.
+
+# 리스트 컴프리헨션을 사용하지 않은 경우
+a = []
+for i in range(1,6):
+    a.append(i)
+
+print(a)
+
+# 리스트컴프리헨션을 사용해서 값을 추가한 경우 
+# 변수명 = [실행문 for문]
+a = [i for i in range(1,6)]
+print(a)
+
+
+# 리스트컴프리헨션을 사용하지 않고 값을 추가한 경우
+# for문을 한 줄로 줄인다.
+# 콜론(:)을 삭제한다.
+# 실행문을 왼쪽으로 이동시킨다.
+# b.append()를 삭제한다.
+# 대괄호([]) 안으로 이동시킨다.
+# b = [i for i in range(1,6)]
+
+# b = []
+# for i in range(1,6):
+#    b.append(i)
+
+print(b)
+
+
+# 형식 : 변수명 = [실행문 for문]
+listData1 = [i for i in range(1,6)]
+print(listData1)  # [1, 2, 3, 4, 5]
+listData1 = [i*2 for i in range(1,6)]
+print(listData1)  # [2, 4, 6, 8, 10]
+
+# 형식 : 변수명 = [실행문 for문 if문]
+# listData2 = []
+# for i in range(1,11):
+#     if i%2 == 0: # 짝수만 저장
+#         listData2.append(i)
+
+listData2 = [i for i in range(1,11) if i%2 == 0]
+print(listData2)
+
+
+# 형식 : 변수명 = [실행문 if 조건식 else 실행문 for문 ]
+# listData3 = [i if i%2 == 0 else i+100 for i in range(1,11)]
+ 
+listData3 = []  # [101, 2, 103, 4, 105, 6, 107, 8, 109, 10]
+for i in range(1,11):
+    if i%2 == 0:  # 짝수
+        listData3.append(i)
+    else:  # 홀수
+        listData3.append(i+100)
+print(listData3)   
+-- exListComprehansion.py --
+
+-- exFor4.py --
+"""
+파일명 : exFor4.py
+프로그램 설명 : continue, break
+"""
+
+for i in range(1,10):
+    if i%2: # if i%2 == 1: 
+        if i == 7: 
+            break
+        continue
+    print(i)
+
+else:
+    print('for문 종료')    
+
+print('프로세스 종료')    
+-- exFor4.py --    
