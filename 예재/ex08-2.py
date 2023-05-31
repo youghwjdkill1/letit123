@@ -6,4 +6,4 @@ while True:
         break
     else:
         hobbies.append(hobby)
-print(hobby)
+print(hobbies)
