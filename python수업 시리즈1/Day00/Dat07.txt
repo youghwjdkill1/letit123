@@ -1,0 +1,409 @@
+전체 학습 목표 :
+1. 파이썬 프로그래밍에서 파일을 다루는 방법을 파악할 수 있다.
+
+파이썬에서 사용되는 파일 다루기
+- text  파일 다루기
+
+학습 목표 : 
+1. 파이썬 프로그래밍에서 파일을 다루는 방법을 파악할 수 있다.
+
+########################
+## 파일 입출력 (text)
+########################
+
+https://docs.python.org/ko/3/tutorial/inputoutput.html
+
+
+--  exFile1.py --
+"""
+파일명 : exFile1.py 
+프로그램 설명 : 파일 입출력 예제 (파일에 데이터 쓰기)
+"""
+filename = "exFile1.txt"
+# 1. 파일 열기 (쓰기모드)
+# 파일이 존재하면 기존에 저장된 파일의 내용은 전부 날라간다. (주의!)
+# 파일이 존재하지 않으면 새로운 파일이 생성된다.
+# 형식:
+# 변수명 = open("파일명", "열기모드", 옵션)
+# w: 쓰기 모드
+# t: text 모드 (생략하면)
+# b: binary 모드
+
+# 1. 파일 열기
+f = open(filename, "w")  # t 생략: text, encoding 생략: cp949
+
+# 2. 파일 처리 (쓰기)
+# 형식:
+# 파일객체명.write("문자열")
+# 파일객체명.write(변수)
+# 리턴값: 파일에 쓴 문자열의 개수를 반환한다.
+print(f.write("Hello"))  # 5
+
+# 3. 파일 닫기
+# 형식: 
+# 파일변수명.close()
+f.close()
+--  exFile1.py --
+
+--  exFile2.py --
+"""
+파일명 : exFile2.py 
+프로그램 설명 : 파일 입출력 예제 (파일에서 데이터 읽기)
+"""
+
+# 저장된 파일: exFile1.txt
+filename = 'exFile1.txt'
+# 1. 파일 열기 (읽기 모드)
+# 파일이 존재하지 않으면 에러가 발생된다. (주의!)
+# 파일이 존재하면 에러가 발생하지 않는다.
+# r, rt: 읽기 권한
+# filename 변수에 저장된 파일을 읽기 모드로 f라는 변수에 오픈한다.
+f = open(filename, 'rt')
+
+# 2. 파일 처리 (읽기)
+# 형식: 
+# 변수명.read():  파일 전체 읽기
+# 변수명.read(size): 파일의 size 만큼 읽기
+# 리턴값: 읽은 문자열을 반환한다.
+#
+# read() 메소드(함수)는 리턴값이 있으므로 두 가지 방식을 사용한다.
+# 리턴값을 바로 출력하는 경우: print(f.read())
+# 리턴값을 변수에 저장해서 활용하는 경우
+# data = f.read()   # "Hello"
+# print(data)
+print(f.read())
+
+# 3. 파일 닫기 
+# 형식: 
+# 변수명.close()
+f.close()
+--  exFile2.py --
+
+
+--  exFile3.py --
+"""
+파일명 : exFile3.py 
+프로그램 설명 : 파일 입출력 예제 (파일 포인터)
+"""
+
+filename = 'exFile1.txt'
+
+# 파일 포인터: 파일의 위치를 가지고 있는 포인터
+# 파일일 열고 읽거나 쓰면 파일 포인터는 자동으로 이동된다. (파이썬에서 자동으로 설정된다.)
+# print(f.read(1))  # H
+# print(f.read(1))  # e
+# print(f.read(1))  # l
+# print(f.read(1))  # l
+# print(f.read(1))  # o
+# print(f.read(1))  # x
+
+# 파일 포인터: 파일의 위치를 가지고 있는 포인터
+# print(f.read(2))  # He
+# print(f.read(2))  # ll
+# print(f.read(1))  # o
+
+# while문 이용해서 출력한다.
+# data = f.read(1)  # H
+# while data: 
+#     print(data, end='')
+#     data = f.read(1) 
+
+# 무한루프를 이용해서 출력한다. 
+# while 1:  # while True:
+#     data = f.read(1)
+#     if data:
+#         print(data, end='')
+#     else:
+#         break
+#
+# while 1 :
+#     data = f.read(1)
+#     if not data:
+#         break
+#     print(data, end='')
+    
+count = 1
+data = f.read(1)
+while data:
+    print(count, "  ", end='')
+    print(data)
+    data = f.read(1)
+    count += 1
+
+f.close()
+-- exFile3.py --
+
+-- exFile4.py --
+"""
+파일명 : exFile4.py 
+프로그램 설명 : 파일 입출력 예제 (파일에 데이터 추가)
+"""
+
+# 1. 파일 열기 (추가 모드)
+# 파일이 존재하면 기존에 저장된 파일의 끝에 추가된다.
+# 파일 포인터(파일의 위치)는 파일의 끝으로 이동한다.
+# 파일이 존재하지 않으면 새로운 파일이 생성된다.
+# 형식 :
+# 변수명 = open('파일명', 'a', 옵션)
+# w: 쓰기 모드
+# r: 읽기 모드
+# a: 추가 모드
+filename = "exFile1.txt"
+openFile = open(filename, 'a')
+
+# 2. 파일 처리 (추가)
+data = "안녕하세요! 즐거운 파이썬 시간입니다."
+print(data, len(data))  # 안녕하세요! 즐거운 파이썬 시간입니다. 21
+openFile.write(data)
+
+# 3. 파일 닫기
+openFile.close() 
+
+-- exFile4.py --
+
+-- exFile5.py --
+"""
+파일명 : exFile5.py 
+프로그램 설명 : 파일 입출력 예제 (with문)
+"""
+
+# 파일을 열 때 with문을 많이 사용한다.
+# with문은 파일을 열면 파일을 자동으로 닫아주므로 f.close() 사용하지 않아도 된다.
+# with문 형식 :
+# with open('파일명', '열기모드', 옵션) as 객체변수명:
+#     파일 처리 부분
+
+# 1.  f = 잘라내고 그 자리에 with를 쓴다.
+# 2. open() 함수의 끝에 as 를 넣는다
+# 3. 잘라낸 f=을 끝에 붙여넣고 = 을 : 으로 변경한다.
+# 4. 파일처리 코드를 with문 안으로 넣는다.
+# 5. f.close()는 삭제한다.
+
+filename = 'exFile1.txt'
+f = open(filename, 'rt') 
+print(f.read())
+f.close()    
+
+filename = 'exFile1.txt'
+with open(filename, 'rt') as f:
+    print(f.read())
+-- exFile5.py --
+
+-- exFile6.py --
+"""
+파일명 : exFile6.py 
+프로그램 설명 : 파일 입출력 예제 (인코딩 utf8 형식으로 파일에 데이터 쓰기)
+"""
+
+filename = "exFile6.txt"
+# 1. 파일 열기
+# UTF8을 사용하기 위한 인수 encoding='utf8'
+# 형식: 
+# 변수명 = open('파일명', '열기모드', encoding='utf8') 
+f = open(filename, 'wt', encoding='utf8')
+
+# 2. 파일 처리 (쓰기)
+# 파일객체명.write("문자열")
+# 리턴값: 파일에 쓴 문자열의 글자수를 반환한다.
+# 언어셋이 UTF8이면 한글 한 글자에 3byte의 크기를 갖고
+# 영문이나 공백, \n은 그대로 1byte 크기를 갖는다.
+# Hello 안녕하세요. : 22byte
+print(f.write('Hello 안녕하세요.'))  # 글자 수 12개
+
+# 3. 파일 닫기
+f.close()
+
+# utf8로 파일을 저장하면 utf8로 파일을 오픈해야 한다.
+# utf8로 저장하고 cp949로 오픈하면 인코딩 에러가 발생한다.
+with open(filename, 'r', encoding='utf8') as f:
+    print(f.read())
+-- exFile6.py --
+
+
+아래 data.txt 파일을 utf8 형식으로 저장한다.
+
+-- data.txt --
+전체 학습 목표 :
+1. 파이썬 프로그래밍에서 파일을 다루는 방법을 파악할 수 있다.
+2. 파이썬 프로그래밍에서 사용되는 자료형을 다루는 고급 부분을 파악할 수 있다.
+
+파이썬에서 사용되는 파일 다루기
+- text  파일 다루기
+
+학습 목표 : 
+1. 파이썬 프로그래밍에서 파일을 다루는 방법을 파악할 수 있다.
+-- data.txt --
+
+텍스트 파일에서 파일의 내용을 읽는 함수
+1. read(): 파일 전체를 읽는다.
+2. read(size): 파일에서 size만큼 읽는다.
+3. readline(): 한 줄씩 읽는다.
+4. readlines(): 파일 전체를 읽어서 리스트 형태로 한 라인씩 저장한다.
+
+-- exFile7.py --
+"""
+파일명 : exFile7.py 
+프로그램 설명 : 파일 입출력 예제 (인코딩 utf8 형식으로 파일에 데이터 읽기)
+"""
+
+# 전통적인 방법의 파일 읽기
+# f = open(filename, 'rt', encoding='utf8')
+# data = f.readline()
+# while data:
+#     print(data, end='')
+#     data = f.readline()
+# f.close()
+
+# 전통적인 방법의 파일 읽기를 with문을 이용해서 변경한 경우
+# with open(filename, 'rt', encoding='utf8') as f:
+#     data = f.readline()
+#     while data:
+#         print(data, end='')
+#         data = f.readline()
+
+# for문을 이용해서 좀 더 심플하게 반복해서 처리하는 경우
+# with open(filename, 'rt', encoding='utf8') as f:
+#     for data in f:
+#         print(data, end='')
+    
+# readlines()를 이용한 경우
+with open(filename, 'rt', encoding='utf8') as f:
+    data = f.readlines()
+    for line in data:
+        print(line, end='')
+
+-- exFile7.py --
+
+-- exFile8.py --
+"""
+파일명 : exFile8.py 
+프로그램 설명 : 파일 입출력 예제 (텍스트 파일 복사)
+"""
+
+# 전용 함수를 사용하지 않고 원리를 알기 위한 코드
+# 파일 복사의 개념
+# 파일을 두 개 열고
+# 첫 번째 파일(원본 파일): 읽기 전용으로 연다.
+# 두 번째 파일(복사본 파일): 쓰기 전용으로 연다.
+# 원본 파일에서 읽어서 복사본 파일로 쓰는 것이다.
+
+# with문을 사용하지 않은 경우
+# filename1 = 'data.txt'
+# filename2 = 'data2.txt'
+# f1 = open(filename1, 'r', encoding='utf8')  # 원본 파일
+# f2 = open(filename2, 'w', encoding='utf8')  # 복사본 파일
+
+# f2.write(f1.read()) # 원본 파일을 읽어서 복사본 파일로 저장한다.
+
+# f1.close()
+# f2.close()
+
+# with문을 사용한 않은 경우
+filename1 = 'data.txt'
+filename2 = 'data3.txt'
+with open(filename1, 'r', encoding='utf8') as f1: # 원본 파일
+    with open(filename2, 'w', encoding='utf8') as f2: # 복사본 파일
+        f2.write(f1.read()) # 원본 파일을 읽어서 복사본 파일로 저장한다.
+-- exFile8.py --
+
+
+-- exFile9.py --
+"""
+파일명 : exFile9.py 
+프로그램 설명 : 파일 입출력 예제 (바이너리 파일 복사)
+"""
+
+# 원본파일 calc.exe를 워크스페이스에 복사한다.
+# 파일 탐색기 -> 주소창에 cmd
+# copy %systemroot%\system32\calc.exe .
+
+# with문을 사용하지 않은 경우
+# filename1 = 'calc.exe'
+# filename2 = 'calc2.exe'
+# f1 = open(filename1, 'rb')  # 원본 파일
+# f2 = open(filename2, 'wb')  # 복사본 파일
+
+# f2.write(f1.read())
+
+# f1.close()
+# f2.close()
+
+# with문을 사용한 경우
+filename1 = 'calc.exe'
+filename2 = 'calc3.exe'
+# f1 = open(filename1, 'rb')  # 원본 파일
+# f2 = open(filename2, 'wb')  # 복사본 파일
+
+# f2.write(f1.read())
+
+# f1.close()
+# f2.close()
+
+# with문을 사용한 경우
+filename1 = 'calc.exe'
+filename2 = 'calc3.exe'
+with open(filename1, 'rb') as f1:  # 원본 파일
+    with open(filename2, 'wb') as f2:  # 복사본 파일
+        f2.write(f1.read())
+
+-- exFile9.py --
+
+--  exJumsu1File.py --
+"""
+파일명 : exJumsu1File.py
+프로그램 설명 : 성적처리 프로그램을 파일로 저장하기
+"""
+
+# 1. 점수 입력
+print("점수를 입력하세요.")
+kor  = input("국어 점수 : ")
+eng  = input("영어 점수 : ")
+math = input("수학 점수 : ")
+
+# 2. 점수 체크
+kor  = int(kor)  if kor.isdigit()  else 0
+# if kor.isdigit():
+#     kor  = int(kor)  
+# else:
+#     kor = 0   
+eng  = int(eng)  if eng.isdigit()  else 0
+math = int(math) if math.isdigit() else 0
+
+# 3. 점수 계산
+total = kor + eng + math  # 총점 
+#total = sum([kor, eng, math])  # 총점  
+average = total / 3  # 평균 
+
+# 4. 점수 출력
+print("===== 점수의 결과 =====\n"
+      f"국어 점수 : {kor}\n"
+      f"영어 점수 : {eng}\n"
+      f"수학 점수 : {math}\n"
+      f"총점 : {total}\n"
+      f"평균 : {average:.2f}\n"
+      "===== 점수의 결과 =====")
+
+# 5. 파일 저장
+filename = 'exJumsu1File.txt'
+
+# with문을 사용하지 않은 경우
+# f1 = open(filename, 'at', encoding='utf8')
+# f1.write("===== 점수의 결과 =====\n"
+#       f"국어 점수 : {kor}\n"
+#       f"영어 점수 : {eng}\n"
+#       f"수학 점수 : {math}\n"
+#       f"총점 : {total}\n"
+#       f"평균 : {average:.2f}\n"
+#       "===== 점수의 결과 =====\n\n")
+# f1.close()
+
+# with문을 사용하지 않은 경우
+with open(filename, 'at', encoding='utf8') as f1:
+    f1.write("===== 점수의 결과 =====\n"
+        f"국어 점수 : {kor}\n"
+        f"영어 점수 : {eng}\n"
+        f"수학 점수 : {math}\n"
+        f"총점 : {total}\n"
+        f"평균 : {average:.2f}\n"
+        "===== 점수의 결과 =====\n\n")
+-- exJumsu1File.py --
