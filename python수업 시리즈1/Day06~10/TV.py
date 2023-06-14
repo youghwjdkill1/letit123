@@ -45,7 +45,7 @@ class MyTV:
         """
         #print('channelUp() 메소드 실행')
 
-        # TV의 전원이 켜졌는지 체크하는 부분
+        # TV의 전원이 켜졌는지 체크하는 부분    
         if self.onOff:                 # TV의 전원이 켜졌는가 ?
             if self.channel == 100 :   # 채널이 100이면
                 self.channel = 1       # 채널을 1로 설정한다.
