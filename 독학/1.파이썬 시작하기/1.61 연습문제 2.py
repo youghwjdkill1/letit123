@@ -11,6 +11,11 @@
 
 # 오늘도 답은 150번 줄에 있어요
 
+num = int(input())
+print(num * num)
+
+
+
 
 
 
