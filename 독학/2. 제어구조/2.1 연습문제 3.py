@@ -38,11 +38,121 @@
 
 # 지금은 150번줄에 정답있어요
 
-ball = 100
-balllist = ball*100*0.6*
 
-while ball < balllist :
-    print(ball*0.6)
-    round(ball,4)
-    ball = ball * 0.6
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+height = 100
+bounce = 3 / 5
+
+i = 1
+
+while i <= 10:
+    height = height * bounce
+    print(i, round(height, 4))
+    i = i + 1
