@@ -38,8 +38,15 @@
 
 # 지금은 150번줄에 정답있어요
 
+height = 100
+bounce = 3/5
 
+count = 1
 
+while count <= 10:
+    height = height * bounce
+    print(count , round(height, 4))
+    count += 1
 
 
 
