@@ -15,6 +15,13 @@
 # 항상 그랬듯이 답은 150번 줄에
 
 
+num = int(input('정수를 입력하세요 : '))
+
+i = 0
+
+while i < num:
+    print('', num)
+    i += 1
 
 
 
